@@ -1,5 +1,5 @@
 class ContributionsController < ApplicationController
-  @@number_of_images = 63
+  @@number_of_images = 65
 
   def new
     @story = Story.find(params[:story_id])

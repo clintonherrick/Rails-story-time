@@ -10,8 +10,17 @@
 
   <%= f.hidden_field :image_urls_string, value: "#{@randomImage1},#{@randomImage2}" %><br>
 
-  <%= image_tag(@randomImage1, height: '64', class: 'animated bounce') %>
-  <%= image_tag(@randomImage2, height: '64', class: 'animated bounce') %>
+  <% if @randomImage1 == "64.png" || @randomImage1 == "65.png"  %>
+    <%= image_tag(@randomImage1, height: '50', class: 'animated bounce infinite') %>
+  <% else %>
+    <%= image_tag(@randomImage1, height: '50', class: 'animated bounce') %>
+  <% end %>
+
+  <% if @randomImage1 == "64.png" || @randomImage1 == "65.png" %>
+    <%= image_tag(@randomImage2, height: '50', class: 'animated bounce infinite') %>
+  <% else %>
+    <%= image_tag(@randomImage2, height: '50', class: 'animated bounce') %>
+  <% end %>
   <br>
   <%= f.submit %>
 <% end %>
