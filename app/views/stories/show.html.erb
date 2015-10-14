@@ -4,9 +4,13 @@
   <ul>
     <% @story.contributions.each do |contribution| %>
       <li>
-        <%= image_tag(contribution.image_url, height: '32', width: '32') %>
-        <%= contribution.sentence %>
-        <%= contribution.author %>
+        <%= image_tag(contribution.image_url, height: '250') %><br>
+        <h4>
+          <%= contribution.sentence %><br>
+          <small>
+            by <%= contribution.user %>
+          </small>
+      </h4>
       </li>
     <% end %>
   </ul>
@@ -15,6 +19,8 @@
   No contributions, yet!
 </p>
 <% end %>
+
+<h3><%= link_to 'Add Contribution', new_story_contribution_path(@story) %></h3>
 
 <hr>
 <footer>
