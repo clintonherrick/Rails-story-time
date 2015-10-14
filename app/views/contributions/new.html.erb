@@ -10,17 +10,8 @@
 
   <%= f.hidden_field :image_urls_string, value: "#{@randomImage1},#{@randomImage2}" %><br>
 
-  <% if @randomImage1 == "64.png" || @randomImage1 == "65.png"  %>
-    <%= image_tag(@randomImage1, height: '50', class: 'animated bounce infinite') %>
-  <% else %>
-    <%= image_tag(@randomImage1, height: '50', class: 'animated bounce') %>
-  <% end %>
-
-  <% if @randomImage1 == "64.png" || @randomImage1 == "65.png" %>
-    <%= image_tag(@randomImage2, height: '50', class: 'animated bounce infinite') %>
-  <% else %>
-    <%= image_tag(@randomImage2, height: '50', class: 'animated bounce') %>
-  <% end %>
+  <%= render "layouts/clown_logic", :image => @randomImage1, :supplied_class => 'animated wobble' %>
+  <%= render "layouts/clown_logic", :image => @randomImage2, :supplied_class => 'animated wobble' %>
   <br>
   <%= f.submit %>
 <% end %>

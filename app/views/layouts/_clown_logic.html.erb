@@ -1,0 +1,5 @@
+<% if image == "64.png" || image == "65.png"  %>
+  <%= image_tag(image, height: '60', class: 'animated bounce infinite') %>
+<% else %>
+  <%= image_tag(image, height: '50', class: supplied_class) %>
+<% end %>

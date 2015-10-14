@@ -8,8 +8,8 @@
   <%= f.label :sentence %><br>
   <%= f.text_area :sentence, size: "120x20" %><br>
 
-  <%= image_tag(@contribution.image_urls[0], height: '50', class: 'animated bounce') %>
-  <%= image_tag(@contribution.image_urls[1], height: '50', class: 'animated bounce') %>
+  <%= render "layouts/clown_logic", :image => @contribution.image_urls[0], :supplied_class => 'animated wobble' %>
+  <%= render "layouts/clown_logic", :image => @contribution.image_urls[1], :supplied_class => 'animated wobble' %>
   <%= f.submit %>
 <% end %>
 
