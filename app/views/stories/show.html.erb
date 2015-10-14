@@ -4,7 +4,13 @@
   <ul>
     <% @story.contributions.each do |contribution| %>
       <li>
-        <%= image_tag(contribution.image_url, height: '250') %><br>
+        <%= link_to story_contribution_path(@story, contribution) do %>
+        <% contribution.image_urls.each do |image_url| %>
+          <%= image_tag(image_url, height: '64') %>
+        <% end %>
+        <% end  %>
+
+
         <h4>
           <%= contribution.sentence %><br>
           <small>

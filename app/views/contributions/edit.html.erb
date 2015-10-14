@@ -1,3 +1,14 @@
+<%= render "layouts/errors", :object => @contribution %>
+
 <h1>Edit Contribution</h1>
 
-<%= render "form" %>
+<%= form_for [@story, @contribution] do |f| %>
+  <%= f.label :user %>
+  <%= f.text_field :user %><br><br>
+  <%= f.label :sentence %><br>
+  <%= f.text_area :sentence, size: "120x20" %><br>
+
+  <%= image_tag(@contribution.image_urls[0], height: '64') %>
+  <%= image_tag(@contribution.image_urls[1], height: '64') %>
+  <%= f.submit %>
+<% end %>

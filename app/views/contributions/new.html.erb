@@ -1,3 +1,16 @@
+<%= render "layouts/errors", :object => @contribution %>
+
 <h1>New Contribution</h1>
 
-<%= render "form" %>
+<%= form_for [@story, @contribution] do |f| %>
+  <%= f.label :user %>
+  <%= f.text_field :user %><br><br>
+  <%= f.label :sentence %><br>
+  <%= f.text_area :sentence, size: "120x20" %><br>
+
+  <%= f.hidden_field :image_urls_string, value: "#{@randomImage1},#{@randomImage2}" %><br>
+
+  <%= image_tag(@randomImage1, height: '64') %>
+  <%= image_tag(@randomImage2, height: '64') %>
+  <%= f.submit %>
+<% end %>

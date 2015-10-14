@@ -1,0 +1,17 @@
+  <% @contribution.image_urls.each do |image_url| %>
+    <%= image_tag(image_url, height: '64') %>
+  <% end %>
+
+  <h4>
+    <%= @contribution.sentence %><br>
+    <small>
+      by <%= @contribution.user %>
+    </small>
+</h4>
+
+
+<hr>
+<footer>
+  <%= link_to 'Edit', edit_story_contribution_path(@story, @contribution) %> |
+  <%= link_to 'Delete', story_contribution_path(@story, @contribution), :data => {:confirm => "Are you sure?", :method => "delete"}%>
+</footer>
