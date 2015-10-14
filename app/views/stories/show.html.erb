@@ -6,7 +6,7 @@
       <li>
         <%= link_to story_contribution_path(@story, contribution) do %>
         <% contribution.image_urls.each do |image_url| %>
-          <%= image_tag(image_url, height: '64') %>
+          <%= image_tag(image_url, height: '64', class: 'animated zoomIn') %>
         <% end %>
         <% end  %>
 
@@ -33,3 +33,7 @@
   <%= link_to 'Edit', edit_story_path(@story) %> |
   <%= link_to 'Delete', story_path(@story), :data => {:confirm => "Are you sure?", :method => "delete"}%>
 </footer>
+
+<% content_for(:footer) do %>
+<%= link_to 'Home', stories_path %>
+<% end %>

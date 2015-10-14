@@ -10,7 +10,13 @@
 
   <%= f.hidden_field :image_urls_string, value: "#{@randomImage1},#{@randomImage2}" %><br>
 
-  <%= image_tag(@randomImage1, height: '64') %>
-  <%= image_tag(@randomImage2, height: '64') %>
+  <%= image_tag(@randomImage1, height: '64', class: 'animated bounce') %>
+  <%= image_tag(@randomImage2, height: '64', class: 'animated bounce') %>
+  <br>
   <%= f.submit %>
+<% end %>
+
+<% content_for(:footer) do %>
+<%= link_to 'Back', story_path(@story) %> |
+<%= link_to 'Home', stories_path %>
 <% end %>

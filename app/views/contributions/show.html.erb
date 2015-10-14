@@ -1,5 +1,5 @@
   <% @contribution.image_urls.each do |image_url| %>
-    <%= image_tag(image_url, height: '64') %>
+    <%= image_tag(image_url, height: '64', class: 'animated zoomIn') %>
   <% end %>
 
   <h4>
@@ -15,3 +15,8 @@
   <%= link_to 'Edit', edit_story_contribution_path(@story, @contribution) %> |
   <%= link_to 'Delete', story_contribution_path(@story, @contribution), :data => {:confirm => "Are you sure?", :method => "delete"}%>
 </footer>
+
+<% content_for(:footer) do %>
+<%= link_to 'Back', story_path(@story) %> |
+<%= link_to 'Home', stories_path %>
+<% end %>

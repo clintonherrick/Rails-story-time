@@ -5,3 +5,7 @@
   <%= f.text_field :title %>
   <%= f.submit %>
 <% end %>
+
+<% content_for(:footer) do %>
+<%= link_to 'Home', stories_path %>
+<% end %>

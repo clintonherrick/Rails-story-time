@@ -1,9 +1,11 @@
 class ContributionsController < ApplicationController
+  @@number_of_images = 63
+
   def new
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new
-    @randomImage1 = (1 + rand(30)).to_s + '.png'
-    @randomImage2 = (1 + rand(30)).to_s + '.png'
+    @randomImage1 = (1 + rand(@@number_of_images)).to_s + '.png'
+    @randomImage2 = (1 + rand(@@number_of_images)).to_s + '.png'
   end
 
   def create
@@ -18,8 +20,8 @@ class ContributionsController < ApplicationController
     if @contribution.save
       redirect_to story_path(@story)
     else
-      @randomImage1 = (1 + rand(30)).to_s + '.png'
-      @randomImage2 = (1 + rand(30)).to_s + '.png'
+      @randomImage1 = (1 + rand(@@number_of_images)).to_s + '.png'
+      @randomImage2 = (1 + rand(@@number_of_images)).to_s + '.png'
       render :new
     end
   end
@@ -45,6 +47,15 @@ class ContributionsController < ApplicationController
     @story = Story.find(params[:story_id])
     @contribution = Contribution.find(params[:id])
   end
+
+  def destroy
+    @story = Story.find(params[:story_id])
+    @contribution = Contribution.find(params[:id])
+    @contribution.destroy
+
+    redirect_to story_path(@story)
+  end
+
 
   private
   def contribution_params
