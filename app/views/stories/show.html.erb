@@ -3,14 +3,17 @@
 <% if @story.contributions.any? %>
   <ul>
     <% @story.contributions.each do |contribution| %>
-      <li>
+      <li class = "jumbotron">
         <%= link_to story_contribution_path(@story, contribution) do %>
+        
+        <div class = 'well'>
           <% contribution.images.each do |image| %>
             <%= image_tag(image.src, :class => image.animation, :height => image.size) %>
           <% end %>
+        </div>
         <% end  %>
 
-        <h4>
+        <h4 >
           <%= contribution.sentence %><br>
           <small>
             by <%= contribution.user %>

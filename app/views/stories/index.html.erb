@@ -2,7 +2,18 @@
 
 <ul>
   <% @stories.each do |story| %>
-    <li><%= link_to story.title, story_path(story) %>, created at: <%= story.created_at %></li>
+    <li>
+      <h2>
+        <%= link_to story.title, story_path(story) %>,
+        <small>
+          <i>
+            <%= story.created_at.strftime("created on %m/%d/%Y") %>
+            <%= story.created_at.strftime(" at %I:%M%p") %>
+          </i>
+        </small>
+      </h2>
+
+    </li>
   <% end %>
 
 <h3><%= link_to "Add a new story", new_story_path %></h3>
