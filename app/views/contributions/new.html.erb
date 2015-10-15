@@ -8,10 +8,11 @@
   <%= f.label :sentence %><br>
   <%= f.text_area :sentence, size: "120x20" %><br>
 
-  <%= f.hidden_field :image_urls_string, value: "#{@randomImage1},#{@randomImage2}" %><br>
+  <%= f.hidden_field :image_ids_string, value: "#{@randomImages.first.id},#{@randomImages.last.id}" %><br>
 
-  <%= render "layouts/clown_logic", :image => @randomImage1, :supplied_class => 'animated wobble' %>
-  <%= render "layouts/clown_logic", :image => @randomImage2, :supplied_class => 'animated wobble' %>
+  <% @randomImages.each do |randomImage| %>
+    <%= image_tag(randomImage.src, :class => randomImage.animation, :height => image.size) %>
+  <% end %>
   <br>
   <%= f.submit %>
 <% end %>

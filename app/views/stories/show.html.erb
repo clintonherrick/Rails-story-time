@@ -5,8 +5,8 @@
     <% @story.contributions.each do |contribution| %>
       <li>
         <%= link_to story_contribution_path(@story, contribution) do %>
-        <% contribution.image_urls.each do |image_url| %>
-          <%= render "layouts/clown_logic", :image => image_url, :supplied_class => 'animated zoomIn' %>
+        <% contribution.images.each do |image| %>
+          <%= image_tag(image.src, :class => image.animation, :height => image.size) %>
         <% end %>
         <% end  %>
 

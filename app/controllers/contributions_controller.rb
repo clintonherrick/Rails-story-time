@@ -4,24 +4,22 @@ class ContributionsController < ApplicationController
   def new
     @story = Story.find(params[:story_id])
     @contribution = @story.contributions.new
-    @randomImage1 = (1 + rand(@@number_of_images)).to_s + '.png'
-    @randomImage2 = (1 + rand(@@number_of_images)).to_s + '.png'
+    @randomImages = [Image.find(1 + rand(@@number_of_images)), Image.find(1 + rand(@@number_of_images))]
   end
 
   def create
     @story = Story.find(params[:story_id])
-    @image_urls_array = contribution_params[:image_urls_string].split(',')
+    @image_ids = contribution_params[:image_ids_string].split(',')
 
     @our_params = {:user => contribution_params[:user],
                   :sentence => contribution_params[:sentence],
-                  :image_urls => @image_urls_array}
+                  :image_id => @image_ids}
     @contribution = @story.contributions.new(@our_params)
 
     if @contribution.save
       redirect_to story_path(@story)
     else
-      @randomImage1 = (1 + rand(@@number_of_images)).to_s + '.png'
-      @randomImage2 = (1 + rand(@@number_of_images)).to_s + '.png'
+      @randomImages = [Image.find(1 + rand(@@number_of_images)), Image.find(1 + rand(@@number_of_images))]
       render :new
     end
   end
@@ -59,6 +57,6 @@ class ContributionsController < ApplicationController
 
   private
   def contribution_params
-    params.require(:contribution).permit(:user, :sentence, :image_urls_string)
+    params.require(:contribution).permit(:user, :sentence, :image_ids_string)
   end
 end

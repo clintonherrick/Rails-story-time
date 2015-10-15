@@ -4,4 +4,5 @@ class Contribution < ActiveRecord::Base
   validates :image_urls, :presence => true
   default_scope {order('created_at ASC')}
   belongs_to :story
+  belongs_to :image
 end
