@@ -5,6 +5,8 @@ Hi!
 Steps to run dis:
 
 ```
+bundle install
+
 postgres
 
 rake db:init
