@@ -3,7 +3,7 @@
 require File.expand_path('../config/application', __FILE__)
 namespace :db do
 
-  task :init do
+  task :init => :environment do
     Rake::Task['db:drop'].execute
     Rake::Task['db:create'].execute
     Rake::Task['db:migrate'].execute

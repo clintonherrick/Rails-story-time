@@ -1,5 +1,20 @@
 == README
 
+Hi!
+
+Steps to run dis:
+
+```
+postgres
+
+rake db:init
+
+rails s
+
+```
+Now you can navigate to `localhost:3000` and play the game!
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
