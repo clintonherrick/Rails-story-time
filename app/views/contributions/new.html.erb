@@ -11,7 +11,7 @@
   <%= f.hidden_field :image_ids_string, value: "#{@randomImages.first.id},#{@randomImages.last.id}" %><br>
 
   <% @randomImages.each do |randomImage| %>
-    <%= image_tag(randomImage.src, :class => randomImage.animation, :height => image.size) %>
+    <%= image_tag(randomImage.src, :class => randomImage.animation, :height => randomImage.size) %>
   <% end %>
   <br>
   <%= f.submit %>

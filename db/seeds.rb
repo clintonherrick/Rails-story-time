@@ -91,6 +91,7 @@ image_list = [
   ['78.png', 'animated bounce', "50"],
   ['79.png', 'animated bounce', "50"],
   ['80.png', 'animated bounce', "50"],
+  ['81.png', 'animated bounce', "50"],
 ]
 
 image_list.each() do |src, animation, size|

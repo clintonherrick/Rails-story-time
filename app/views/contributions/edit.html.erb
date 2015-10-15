@@ -9,7 +9,7 @@
   <%= f.text_area :sentence, size: "120x20" %><br>
 
   <% @randomImages.each do |randomImage| %>
-    <%= image_tag(randomImage.src, :class => randomImage.animation, :height => image.size) %>
+    <%= image_tag(randomImage.src, :class => randomImage.animation, :height => randomImage.size) %>
   <% end %>
 
   <%= f.submit %>

@@ -3,5 +3,5 @@ class Image <ActiveRecord::Base
   validates :animation, :presence => true
   validates :size, :presence => true
 
-  has_many :contributions
+  has_and_belongs_to_many :contributions
 end

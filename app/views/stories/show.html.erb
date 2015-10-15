@@ -5,11 +5,10 @@
     <% @story.contributions.each do |contribution| %>
       <li>
         <%= link_to story_contribution_path(@story, contribution) do %>
-        <% contribution.images.each do |image| %>
-          <%= image_tag(image.src, :class => image.animation, :height => image.size) %>
-        <% end %>
+          <% contribution.images.each do |image| %>
+            <%= image_tag(image.src, :class => image.animation, :height => image.size) %>
+          <% end %>
         <% end  %>
-
 
         <h4>
           <%= contribution.sentence %><br>

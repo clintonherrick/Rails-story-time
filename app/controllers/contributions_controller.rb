@@ -1,5 +1,5 @@
 class ContributionsController < ApplicationController
-  @@number_of_images = 67
+  @@number_of_images = 81
 
   def new
     @story = Story.find(params[:story_id])
@@ -12,9 +12,11 @@ class ContributionsController < ApplicationController
     @image_ids = contribution_params[:image_ids_string].split(',')
 
     @our_params = {:user => contribution_params[:user],
-                  :sentence => contribution_params[:sentence],
-                  :image_id => @image_ids}
+                  :sentence => contribution_params[:sentence]}
     @contribution = @story.contributions.new(@our_params)
+    @image_ids.each do |image_id|
+      @contribution.images.push(Image.find(image_id))
+    end
 
     if @contribution.save
       redirect_to story_path(@story)
