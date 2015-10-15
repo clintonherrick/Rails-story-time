@@ -2,6 +2,7 @@ class StoriesController <ApplicationController
 
   def index
     @stories = Story.all
+    @images = Image.all
   end
 
   def show

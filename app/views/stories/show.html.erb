@@ -1,11 +1,13 @@
 <h1><%= @story.title %></h1>
 
+
+
 <% if @story.contributions.any? %>
   <ul>
     <% @story.contributions.each do |contribution| %>
       <li class = "jumbotron">
         <%= link_to story_contribution_path(@story, contribution) do %>
-        
+
         <div class = 'well'>
           <% contribution.images.each do |image| %>
             <%= image_tag(image.src, :class => image.animation, :height => image.size) %>
@@ -30,12 +32,8 @@
 
 <h3><%= link_to 'Add Contribution', new_story_contribution_path(@story) %></h3>
 
-<hr>
-<footer>
-  <%= link_to 'Edit', edit_story_path(@story) %> |
-  <%= link_to 'Delete', story_path(@story), :data => {:confirm => "Are you sure?", :method => "delete"}%>
-</footer>
-
 <% content_for(:footer) do %>
-<%= link_to 'Home', stories_path %>
+  <%= link_to 'Edit', edit_story_path(@story) %> |
+  <%= link_to 'Delete', story_path(@story), :data => {:confirm => "Are you sure?", :method => "delete"}%> |
+  <%= link_to 'Home', stories_path %>
 <% end %>

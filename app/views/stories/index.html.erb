@@ -19,3 +19,8 @@
 <h3><%= link_to "Add a new story", new_story_path %></h3>
 
 </ul>
+
+<hr>
+<% @images.each do |image| %>
+  <%= image_tag(image.src, :class => 'animated zoomIn', :height => image.size) %>
+<% end %>
